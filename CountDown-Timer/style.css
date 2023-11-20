@@ -1,0 +1,60 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    background: url("newyear.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+@media screen and (max-width:820px) {
+    .container{
+        width: 100%;
+        height: 100vh;
+        background: url("mobile1.jpg");
+        background-position:center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .timer{
+        margin-top: 90px;
+        margin-right: 0 !important;
+    }
+}
+.timer{
+    width: 390px;
+    padding: 5px;
+    height: fit-content;
+    background-color:transparent;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 16px;
+    margin-right: 100px;
+}
+
+ #head ,.time{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+p{
+    font-size: 17px;
+}
+span{
+    font-size: 20px;
+}

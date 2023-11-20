@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count-Down-Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="timer">
+            <h1 id="head">Count-Down Timer</h1>
+            <div class="time">
+                    <div class="day">
+                        <h1 id="day"></h1>
+                        <p>Days</p>
+                    </div>
+                    <span>:</span>
+                    <div class="hour">
+                        <h1 id="hour"></h1>
+                        <p>Hours</p>
+                    </div>
+                    <span>:</span>
+                    <div class="min">
+                        <h1 id="min"></h1>
+                        <p>Minutes</p>
+                    </div>
+                    <span>:</span>
+                    <div class="sec">
+                        <h1 id="sec"></h1>
+                        <p>Seconds</p>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded",function () {
+            let day = document.getElementById("day");
+            let hour = document.getElementById("hour");
+            let  min = document.getElementById("min");
+            let  sec = document.getElementById("sec");
+             // calculate new year in seconds
+             let newyeartime = new Date("January 1,2024 00:00:00").getTime();
+            
+            let CountDown = setInterval(function () {
+                // take current time in seconds
+                let currenttime = new Date().getTime();
+                //find remaining seconds between newyear time and cureent time 
+                let remainigtime = newyeartime - currenttime;
+                // find days between new year day and current day
+                let dayleft = Math.floor(remainigtime / (1000*60*60*24));
+                // find hours between new year day and current day 
+                let hourleft = Math.floor( (remainigtime % (1000*60*60*24)) /(1000*60*60)); 
+                // find minutes between new year day and current day
+                let minleft =  Math.floor((remainigtime % (1000*60*60))/ (1000*60));
+                // find seconds between new year day and current day
+                let secleft =  Math.floor((remainigtime % (1000*60)) / 1000);
+
+                day.innerHTML = String(dayleft).padStart(2,"0");
+                hour.innerHTML = String(hourleft).padStart(2,"0");
+                min.innerHTML = String(minleft).padStart(2,"0");
+                sec.innerHTML = String(secleft).padStart(2,"0");
+
+                if (remainigtime <= 0) {
+                    clearInterval(CountDown);
+                    time.innerHTML = "HAPPY NEW YEAR";
+                } else {
+                    remainigtime--;
+                }
+
+            },1000);
+        
+        })
+
+        
+    </script>
+</body>
+</html>
